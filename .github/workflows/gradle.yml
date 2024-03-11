@@ -21,8 +21,13 @@ jobs:
 
       - name: Decode fcm.json
         env:
-          FIREBASE_SECRET: ${{ secrets.FCM }}
+          FCM: ${{ secrets.FCM }}
         run: echo $FCM > ./src/fcm.json
+
+      - name: Decode token
+        env:
+          TOKEN: ${{ secrets.TOKEN }}
+        run: echo $TOKEN > ./src/token.txt
 
       - name: Build
         run: |
