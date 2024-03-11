@@ -19,6 +19,11 @@ jobs:
         with:
           java-version: 17
 
+      - name: Decode fcm.json
+        env:
+          FIREBASE_SECRET: ${{ secrets.FCM }}
+        run: echo $FCM > ./src/fcm.json
+
       - name: Build
         run: |
           chmod +x ./gradlew
